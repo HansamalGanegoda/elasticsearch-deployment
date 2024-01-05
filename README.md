@@ -10,7 +10,6 @@ An SLM policy named daily-backups is scheduled to run daily at 2:00 AM. This pol
 
 Navigate to the chart's templates directory:
 
-```cmd
 cd my-elk-stack-chart/my-elk-stack-chart/templates
 Deploy Elasticsearch:
 
