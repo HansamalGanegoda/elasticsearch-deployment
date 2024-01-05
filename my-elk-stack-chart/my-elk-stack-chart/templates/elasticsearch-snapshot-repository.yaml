@@ -1,0 +1,25 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: my-elasticsearch
+spec:
+  version: 7.10.0
+  nodeSets:
+  - name: default
+    count: 1
+    config:
+      node.master: true
+      node.data: true
+      node.ingest: true
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: ElasticsearchSnapshotRepository
+metadata:
+  name: my-repository
+  namespace: default
+spec:
+  repository:
+    type: fs
+    settings:
+      location: /path/to/your/backup/directory
+      compress: true

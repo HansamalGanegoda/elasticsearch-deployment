@@ -1,0 +1,17 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: ElasticsearchSLMPolicy
+metadata:
+  name: daily-backups
+  namespace: default
+spec:
+  schedule: "0 0 2 * * ?"
+  name: "<daily-backup-{now/d}>"
+  repository: my-repository
+  config:
+    indices: "*"
+    ignore_unavailable: true
+    include_global_state: true
+  retention:
+    expire_after: "7d"
+    min_count: 5
+    max_count: 20

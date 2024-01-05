@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-elk-stack-chart
+description: ELK Stack deployment with Elasticsearch and Kibana configurations
+version: 0.1.0
